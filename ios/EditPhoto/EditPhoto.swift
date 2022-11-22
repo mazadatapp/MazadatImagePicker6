@@ -64,7 +64,7 @@ class EditPhoto: UIViewController {
         image_zoom=UIImageView(frame: CGRect(x: 0, y: 0, width: width, height: zoom_view_height))
         image_zoom.contentMode = .scaleAspectFit
         zoom_view.addSubview(image_zoom)
-        zoom_view.backgroundColor = .red
+        zoom_view.backgroundColor = .white
         print("size")
         print(zoom_view_height)
         print(image_zoom.frame.size)
