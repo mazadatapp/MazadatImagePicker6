@@ -7,8 +7,8 @@ export default function App() {
   const [result, setResult] = React.useState<number | undefined>();
 
   const test = () => {
-    const path='/var/mobile/Containers/Data/Application/C641A8CD-A68E-450E-8EED-3A261B517F91/Documents/photo.png'
-    openCamera('Scan Front Side',4, 3).then((value) => {
+    const path='/data/user/0/com.mazadatimagepicker6example/cache/1669118307971.png'
+    editPhoto('Scan Front Side',path,4, 3).then((value) => {
       setResult(value)
       console.log(result)
     });
