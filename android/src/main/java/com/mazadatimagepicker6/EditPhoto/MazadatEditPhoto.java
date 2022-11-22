@@ -68,7 +68,8 @@ public class MazadatEditPhoto extends AppCompatActivity {
     setContentView(R.layout.activity_mazadat_edit_photo);
     title = getIntent().getExtras().getString("Title");
     aspect_ratio_x = getIntent().getExtras().getInt("AspectRatioX");
-    aspect_ratio_y = getIntent().getExtras().getInt("AspectRatioY"
+    aspect_ratio_y = getIntent().getExtras().getInt("AspectRatioY");
+
 
     if (getIntent().getExtras().getString("from").equals("camera")) {
       BitmapFactory.Options bmOptions = new BitmapFactory.Options();
