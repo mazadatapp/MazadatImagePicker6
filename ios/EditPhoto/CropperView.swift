@@ -224,6 +224,12 @@ class CropperView: UIView {
        return image_view.snapshot(of: cropArea)
         
     }
+    
+    open func setAspectRatio(aspect_ratio_x:Float,aspect_ratio_y:Float){
+        self.aspect_ratio_x=Double(aspect_ratio_x)
+        self.aspect_ratio_y=Double(aspect_ratio_y)
+       setMargins()
+    }
     func setMargins(){
         let imageViewHeight = image_.bounds.height
         let imageViewWidth = image_.bounds.width

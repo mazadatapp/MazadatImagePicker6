@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 class EditPhoto: UIViewController {
     var cropView: CropperView!
     var title_view: UIView!
@@ -125,7 +124,14 @@ class EditPhoto: UIViewController {
         zoom_out_button.addTarget(self, action: #selector(self.zoomOutPressed(_:)), for: .touchUpInside)
         next_button.addTarget(self, action: #selector(self.nextPressed(_:)), for: .touchUpInside)
         
-
+//        let lottie = LottieAnimationView(frame: CGRect(x: 100, y: 100, width: 200, height: 200))
+//        view.addSubview(lottie)
+//        let url = URL(string: "https://assets1.lottiefiles.com/packages/lf20_ujlt8xt3.json")!
+//        LottieAnimation.loadedFrom(url: url, closure: { [weak self] animation in
+//            lottie.animation = animation
+//            lottie.play()
+//        }, animationCache: LRUAnimationCache.sharedCache)
+//        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -137,7 +143,9 @@ class EditPhoto: UIViewController {
         let fileManager = FileManager.default
         if fileManager.fileExists(atPath: filePath) {
             print("FILE AVAILABLE")
+            
             cropView.setImage(image: UIImage(contentsOfFile: fileName.path)!)
+            cropView.setAspectRatio(aspect_ratio_x: aspectRatioX, aspect_ratio_y: aspectRatioY)
         } else {
             print("FILE NOT AVAILABLE")
         }

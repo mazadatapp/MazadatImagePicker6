@@ -8,7 +8,7 @@ export default function App() {
 
   const test = () => {
     const path='/data/user/0/com.mazadatimagepicker6example/cache/1669118307971.png'
-    openGallery('Scan Front Side',1, 1).then((value) => {
+    openGallery('Scan Front Side',3, 7).then((value) => {
       setResult(value)
       console.log(result)
     });
@@ -22,7 +22,6 @@ export default function App() {
     </View>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
