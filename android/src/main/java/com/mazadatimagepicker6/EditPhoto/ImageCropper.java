@@ -128,10 +128,10 @@ public class ImageCropper extends AppCompatImageView {
             Log.i("datadata_size",new_width+" "+new_height);
 
             if(new_height>new_width) {
-              width = new_width * 0.6f;
+              width = new_width * 0.7f;
               height = width * aspectRatioY / aspectRatioX;
             }else{
-              height = new_height * 0.6f;
+              height = new_height * 0.7f;
               width = height * aspectRatioX / aspectRatioY;
             }
             x = new_width * 0.1f;

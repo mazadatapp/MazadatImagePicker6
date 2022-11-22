@@ -114,6 +114,7 @@ public class MazadatEditPhoto extends AppCompatActivity {
       rotatePhotoR();
 
 
+
     // captured_image_im.setOnTouchListener(new ImageMatrixTouchHandler(this));
   }
 
