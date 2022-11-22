@@ -123,7 +123,7 @@
         app:layout_constraintWidth_percent="0.5"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_rawRes="@raw/lottie_zoom_in" />
+        app:lottie_url="https://assets8.lottiefiles.com/packages/lf20_17GV9eWtlD.json" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
