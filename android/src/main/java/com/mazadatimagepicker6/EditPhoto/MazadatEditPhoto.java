@@ -19,6 +19,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.jsibbold.zoomage.ZoomageView;
 import com.mazadatimagepicker6.R;
 
 import java.io.ByteArrayOutputStream;
@@ -29,7 +30,7 @@ import java.util.Date;
 public class MazadatEditPhoto extends AppCompatActivity {
 
   ConstraintLayout zoom_image_cl, crop_image_cl, lottie_cl;
-  ZoomableImageView zoom_image_im;
+  ZoomageView zoom_image_im;
   ImageCropper crop_image_im;
   Bitmap capturedBitmap, zoomBitmap;
   TextView title_tv;
@@ -145,6 +146,7 @@ public class MazadatEditPhoto extends AppCompatActivity {
 
   public void resetPhoto() {
     step = 0;
+    resetImage();
     crop_image_cl.setVisibility(View.VISIBLE);
     zoom_image_cl.setVisibility(View.INVISIBLE);
     crop_image_im.setImageBitmap(capturedBitmap);
