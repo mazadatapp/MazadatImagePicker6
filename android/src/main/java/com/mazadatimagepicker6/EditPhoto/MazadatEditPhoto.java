@@ -70,18 +70,8 @@ public class MazadatEditPhoto extends AppCompatActivity {
     aspect_ratio_x = getIntent().getExtras().getInt("AspectRatioX");
     aspect_ratio_y = getIntent().getExtras().getInt("AspectRatioY");
 
+    resetImage();
 
-    if (getIntent().getExtras().getString("from").equals("camera")) {
-      BitmapFactory.Options bmOptions = new BitmapFactory.Options();
-      Log.i("datadata_path", getIntent().getExtras().getString("path"));
-      capturedBitmap = BitmapFactory.decodeFile(getIntent().getExtras().getString("path"), bmOptions);
-
-    } else {
-      Log.i("datadata_path", getIntent().getExtras().getString("path"));
-      BitmapFactory.Options bmOptions = new BitmapFactory.Options();
-      capturedBitmap = BitmapFactory.decodeFile(getIntent().getExtras().getString("path"), bmOptions);
-
-    }
     zoom_image_cl = findViewById(R.id.zoom_image_cl);
     crop_image_cl = findViewById(R.id.crop_image_cl);
     lottie_cl = findViewById(R.id.lottie_cl);
@@ -117,7 +107,11 @@ public class MazadatEditPhoto extends AppCompatActivity {
 
     // captured_image_im.setOnTouchListener(new ImageMatrixTouchHandler(this));
   }
-
+  public void resetImage(){
+    BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+    Log.i("datadata_path", getIntent().getExtras().getString("path"));
+    capturedBitmap = BitmapFactory.decodeFile(getIntent().getExtras().getString("path"), bmOptions);
+  }
   public void nextPressed() {
     step = 1;
     lottie_cl.setVisibility(View.VISIBLE);
