@@ -43,6 +43,7 @@ class CameraController: SwiftyCamViewController,SwiftyCamViewControllerDelegate 
         let height=view.frame.height
         
         overlayView = Overlay(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
+        overlayView.setAspectRatio(aspect_ratio_x: aspectRatioX, aspect_ratio_y: aspectRatioY)
         view.addSubview(overlayView)
 
         let title_width = 8 * title_text.count + 32
