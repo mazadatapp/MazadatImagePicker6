@@ -8,7 +8,7 @@ export default function App() {
 
   const test = () => {
     const path='/data/user/0/com.mazadatimagepicker6example/cache/1669118307971.png'
-    openCamera('Scan Front Side',4, 7).then((value) => {
+    openCamera('Scan Front Side',1, 1).then((value) => {
       setResult(value)
       console.log(result)
     });
