@@ -186,15 +186,9 @@ class EditPhoto: UIViewController {
         cropView.rotateRight()
       }
     @objc func zoomOutPressed(_ sender: UIButton) {
-        //cropView.zoomOut()
+        cropView.zoomOut()
         rotate_left_button.isHidden=true
         rotate_right_button.isHidden=true
-        
-        cropView.reset()
-        
-        rotate_left_button.isHidden=false
-        rotate_right_button.isHidden=false
-        zoom_out_button.isHidden=false
         
         
       }
@@ -228,7 +222,7 @@ class EditPhoto: UIViewController {
     @objc func resetPressed(_ sender: UIButton) {
         
         step = 0
-        
+        cropView.reset()
         zoom_view.isHidden=true
         cropView.isHidden=false
         
