@@ -1,6 +1,6 @@
 {
   "name": "mazadat-image-picker6",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "test",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -41,13 +41,13 @@
     "ios",
     "android"
   ],
-  "repository": "https://github.com/karimmazadat/MazadatImagePicker6",
-  "author": "karim saad <karim.saad@mazad.at> (https://github.com/karimmazadat)",
+  "repository": "https://github.com/mazadatapp/MazadatImagePicker6.git",
+  "author": "karim saad <karim.saad@mazad.at> (https://github.com/mazadatapp)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/karimmazadat/mazadat-image-picker6/issues"
+    "url": "https://github.com/mazadatapp/MazadatImagePicker6/issues"
   },
-  "homepage": "https://github.com/karimmazadat/mazadat-image-picker6#readme",
+  "homepage": "https://github.com/mazadatapp/MazadatImagePicker6#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
