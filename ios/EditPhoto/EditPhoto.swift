@@ -13,6 +13,7 @@ class EditPhoto: UIViewController {
     var title_: UILabel!
     var back_button: UIButton!
     var next_button: UIButton!
+    var reset_button: UIButton!
     
     var zoom_image_height: NSLayoutConstraint!
     var zoom_view: UIView!
@@ -98,11 +99,23 @@ class EditPhoto: UIViewController {
         back_button.tintColor = .white
         view.addSubview(back_button)
         
-        rotate_left_button=UIButton(frame: CGRect(x: 20, y: height - 65 , width: 30, height: 30))
+        reset_button=UIButton(frame: CGRect(x: 20, y: height - 65 , width: 80, height: 30))
+        reset_button.setTitleColor(.red, for: .normal)
+        reset_button.setTitle("Reset", for: .normal)
+        reset_button.tintColor = .white
+        view.addSubview(reset_button)
+        
+        rotate_left_button=UIButton(frame: CGRect(x: width - 210, y: height - 65 , width: 30, height: 30))
         rotate_left_button.tintColor = UIColor.white
         rotate_left_button.setImage(UIImage(named: "ic_rotate_left"), for: .normal)
         rotate_left_button.tintColor = .white
         view.addSubview(rotate_left_button)
+        
+        zoom_out_button=UIButton(frame: CGRect(x: width - 130, y: height - 65 , width: 30, height: 30))
+        zoom_out_button.tintColor = UIColor.white
+        zoom_out_button.setImage(UIImage(named: "ic_zoom_out"), for: .normal)
+        zoom_out_button.tintColor = .white
+        view.addSubview(zoom_out_button)
         
         rotate_right_button=UIButton(frame: CGRect(x: width - 50, y: height - 65 , width: 30, height: 30))
         rotate_right_button.tintColor = UIColor.white
@@ -110,11 +123,7 @@ class EditPhoto: UIViewController {
         rotate_right_button.tintColor = .white
         view.addSubview(rotate_right_button)
         
-        zoom_out_button=UIButton(frame: CGRect(x: width/2 - 15, y: height - 65 , width: 30, height: 30))
-        zoom_out_button.tintColor = UIColor.white
-        zoom_out_button.setImage(UIImage(named: "ic_zoom_out"), for: .normal)
-        zoom_out_button.tintColor = .white
-        view.addSubview(zoom_out_button)
+        
         
         // Do any additional setup after loading the view.
         
@@ -123,6 +132,7 @@ class EditPhoto: UIViewController {
         rotate_right_button.addTarget(self, action: #selector(self.rotateRightPressed(_:)), for: .touchUpInside)
         zoom_out_button.addTarget(self, action: #selector(self.zoomOutPressed(_:)), for: .touchUpInside)
         next_button.addTarget(self, action: #selector(self.nextPressed(_:)), for: .touchUpInside)
+        reset_button.addTarget(self, action: #selector(self.resetPressed(_:)), for: .touchUpInside)
         
 //        let lottie = LottieAnimationView(frame: CGRect(x: 100, y: 100, width: 200, height: 200))
 //        view.addSubview(lottie)
@@ -180,7 +190,13 @@ class EditPhoto: UIViewController {
         rotate_left_button.isHidden=true
         rotate_right_button.isHidden=true
         
-        cropView.zoomOut()
+        cropView.reset()
+        
+        rotate_left_button.isHidden=false
+        rotate_right_button.isHidden=false
+        zoom_out_button.isHidden=false
+        
+        
       }
     
     @objc func nextPressed(_ sender: UIButton) {
@@ -207,6 +223,20 @@ class EditPhoto: UIViewController {
           dismiss(animated: true)
         }
         step+=1
+      }
+    
+    @objc func resetPressed(_ sender: UIButton) {
+        
+        step = 0
+        
+        zoom_view.isHidden=true
+        cropView.isHidden=false
+        
+        rotate_left_button.isHidden=false
+        rotate_right_button.isHidden=false
+        zoom_out_button.isHidden=false
+        
+        cropView.rotateToDefault()
       }
     
 

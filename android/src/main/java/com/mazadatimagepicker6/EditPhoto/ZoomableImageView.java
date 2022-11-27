@@ -61,7 +61,7 @@ public class ZoomableImageView extends ImageView implements GestureDetector.OnGe
         matrix = new Matrix();
         m = new float[9];
         setImageMatrix(matrix);
-        setScaleType(ScaleType.MATRIX);
+        setScaleType(ScaleType.FIT_XY);
 
         setOnTouchListener(new OnTouchListener() {
 

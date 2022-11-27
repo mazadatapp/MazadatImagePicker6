@@ -63,6 +63,8 @@ class CropperView: UIView {
     var max_y:CGFloat = 0
     var min_x:CGFloat = 0
     var max_x:CGFloat = 0
+    
+    var angle:Float = 0.0
     override func draw(_ rect: CGRect) {
         all_rect=rect
       if(once){
@@ -206,6 +208,12 @@ class CropperView: UIView {
         zoom_out.isHidden=false
         image_.isHidden=true
     }
+    
+    open func reset(){
+        zoom_out.isHidden=true
+        image_.isHidden=false
+    }
+    
     open func getCropView()->UIView{
         return centerView
     }
@@ -259,23 +267,38 @@ class CropperView: UIView {
        
     }
     open func rotateRight(){
-      let newImage = image_.image!.rotate(radians: .pi/2)
-      image_.image=newImage
+        let newImage = image_.image!.rotate(radians: .pi/2)
+        image_.image=newImage
       
-      let newImage2 = zoom_out_image.image!.rotate(radians: .pi/2)
-      zoom_out_image.image=newImage2
-      //zoom_out_image.transform = zoom_out_image.transform.rotated(by: .pi/2)
-      //zoom_out_image.contentMode = .scaleAspectFit
+        let newImage2 = zoom_out_image.image!.rotate(radians: .pi/2)
+        zoom_out_image.image=newImage2
+        
+        angle += .pi/2
+        
         setMargins()
     }
     
     open func rotateLeft(){
-      let newImage = image_.image!.rotate(radians: -.pi/2)
-      image_.image=newImage
+        let newImage = image_.image!.rotate(radians: -.pi/2)
+        image_.image=newImage
       
-      let newImage2 = zoom_out_image.image!.rotate(radians: -.pi/2)
-      zoom_out_image.image=newImage2
-      //zoom_out_image.contentMode = .scaleAspectFit
+        let newImage2 = zoom_out_image.image!.rotate(radians: -.pi/2)
+        zoom_out_image.image=newImage2
+      
+        angle -= .pi/2
+        
+        setMargins()
+    }
+    
+    open func rotateToDefault(){
+        let newImage = image_.image!.rotate(radians: -angle)
+        image_.image=newImage
+      
+        let newImage2 = zoom_out_image.image!.rotate(radians: -angle)
+        zoom_out_image.image=newImage2
+      
+        angle = 0
+        
         setMargins()
     }
     
