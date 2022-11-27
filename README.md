@@ -11,11 +11,13 @@ npm install mazadat-image-picker6
 ## Usage
 
 ```js
-import { multiply } from 'mazadat-image-picker6';
+import { openCamera,openGallery,editPhoto } from 'mazadat-image-picker6';
 
 // ...
 
-const result = await multiply(3, 7);
+const result = await openCamera('title',3, 7);
+const result = await openGallery('title',3, 7);
+const result = await editPhoto('title','path/to/the/image',3, 7);
 ```
 
 ## Contributing
